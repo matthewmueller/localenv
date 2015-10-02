@@ -6,8 +6,10 @@ var env = process.env.NODE_ENV || 'development';
 // makes it ok to check in your .env.development files
 // don't check in your .env.local file tho :)
 if (env === 'production') {
-    return;
+    loader.inject_env('.env.local');
+}
+else {
+    loader.inject_env('.env.local');
+    loader.inject_env('.env');    
 }
 
-loader.inject_env('.env.local');
-loader.inject_env('.env');
